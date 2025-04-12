@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gautam Jagthap Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: konexy;
+      src: url("KonexyPersonalUse.otf");
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Poppins;
+      box-sizing: border-box;
+      font-size: 20px;
+    }
+
+    html,
+    body {
+      height: 100vh;
+      width: 100%;
+      color: #fff;
+      text-align: center;
+    }
+
+    .bg-image {
+      height: 100vh;
+      width: 100%;
+      background-color: #000;
+      background-image: url('background.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: fixed;
+      z-index: -2;
+
+    }
+
+    .bg-overlay{
+      min-height: 100vh;
+      width: 100%;
+      background-color: #000000a1;
+      position: fixed;
+      z-index: -1;
+    }
+
+    .container {
+      min-height: 100vh;
+      width: 100%;
+      padding: 2vh 0;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-item {
+      background: rgba(252, 252, 252, 0.034);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 15px;
+      border: 1px solid #b3b3b3c0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: all ease-in-out 0.4s;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-item h4 {
+      margin-bottom: 10px;
+      color: #f5c518;
+      font-size: 1.1rem;
+    }
+
+    .skill-bar {
+      background: #333;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .skill-bar-fill {
+      height: 10px;
+      background-color: #f5c518;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #f5c518;
+      text-align: center;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: #f5c518;
+      margin-bottom: 10px;
+    }
+
+    .item {
+      margin-bottom: 15px;
+    }
+
+    .contact a {
+      color: #f5c518;
+      text-decoration: none;
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #f5c518;
+      color: #000;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+
+    .languages span {
+      margin-right: 10px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 10px;
+      border: 1px solid #f5c5186b;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 30px rgba(245, 197, 24, 0.3);
+      text-align: center;
+    }
+
+    .project-card h3 {
+      color: #f5c518;
+      margin-bottom: 10px;
+    }
+
+    .project-card video {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .project-card a.live {
+      background-color: #f5c518;
+      color: #000;
+      margin-right: 10px;
+    }
+
+
+    #project-github-repo {
+      background-color: #7272722f;
+      color: white;
+      border: 1px solid #b2bec170;
+      backdrop-filter: blur(5px);
+      transition: all ease 0.3s;
+    }
+
+    #project-github-repo:hover {
+      background-color: #72727277;
+    }
+
+    #project-live {
+      transition: all ease 0.3s;
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 26px;
+      background-color: #f5c518;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      /* margin-right: 10px; */
+    }
+
+    #project-live:hover {
+      background-color: #d5aa0c;
+    }
+
+    #Resume {
+      transition: all ease 0.3s;
+      display: inline-block;
+      /* margin-top: 20px; */
+      padding: 10px 75px;
+      background-color: #f5c518;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    #Resume:hover {
+      background-color: #d5aa0c;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1vw;
+      margin-bottom: 5vh;
+      margin-top: 5vh;
+    }
+
+    #linkedin {
+      background-color: #7272722f;
+      color: white;
+      border: 1.5px solid #b2bec1b4;
+      backdrop-filter: blur(5px);
+      padding: 10px 72px;
+      transition: all ease 0.3s;
+      /* margin-top: 40px; */
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    #linkedin:hover {
+      background-color: #44444495;
+    }
+
+    footer{
+      text-align: center;
+      border-top: 2px solid #ffffff57;
+      padding: 2vh 0;
+      backdrop-filter: blur(5px);
+    }
+
+    @media (max-width:1500px) {
+      
+      .container{
+        font-size: 8vh;
+        padding: 10px;
+      }
+
+      .container>h1{
+        font-size: 5vh;
+        width: 100%;
+        border-bottom: 2px solid #c9c9c987;
+        padding-bottom: 1.5vh;
+      }
+
+      .section-title{
+        font-size: 3.5vh;
+      }
+    }
+
+    @media (max-width:450px) {
+
+      body{
+        font-size: 1px;
+        
+      }
+
+      .container{
+        padding: 10px;
+      }
+
+      .container>h1{
+        font-size: 5vh;
+        width: 100%;
+        border-bottom: 2px solid #c9c9c987;
+        padding-bottom: 1.5vh;
+      }
+
+      .section-title{
+        font-size: 3.5vh;
+      }
+
+
+      .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 5vh;
+        gap: 1vh;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .container>h1{
+        font-size: 4vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-image"></div>
+  <div class="bg-overlay"></div>
+  <div class="container">
+
+    <h1>Gautam Jagthap</h1>
+    <div class="section">
+      <div class="section-title">Career Goal</div>
+      <div>
+      Aspiring Software Developer & Data Analyst pursuing B.Tech in Computer Science Engineering. Passionate about building real-world solutions through programming, data analysis, and visualization. Quick learner with a problem-solving mindset and strong communication skills, actively gaining hands-on experience through projects and hackathons.
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Experience</div>
+      <div class="item">
+        <strong>Team Member – Reimagine Hackathon</strong><br />
+        Sheryians Coding School, Bhopal<br />
+        <em>Aug – Sep 2024</em>
+      </div>
+      <div class="item">
+        <strong>Team Leader – HackNdore</strong><br />
+        Indore Municipal Corporation<br />
+        <em>Jul 2024</em>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Education</div>
+      <div class="item">
+        <li>Bachelor of Technology, Computer Science Engineering, Medi-Caps University, Indore</li>
+        (Expected: Jun 2026)
+      </div>
+      <div class="item">
+        <li>Higher Secondary, Yashwant Public School, Mhow</li>
+        2022
+      </div>
+      </div>
+
+    <div class="section">
+      <div class="section-title">Certifications</div>
+      <li>SEBI Investor Certification</li>
+      <li>Six Sigma: Green Belt Certified</li>
+      <li>Executive Diploma in Business Communication</li>
+      <li>Creating an AI Adoption Strategy for Business</li>
+      <li>Fundamentals of Cybersecurity (EDU-102)</li>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Skills</div>
+      <div class="skill-grid">
+
+        <div class="skill-item">
+          <h4><i class="fas fa-code"></i> Programming Languages</h4>
+          <div class="skill-label"><span>Java</span><span>90%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 90%;"></div>
+          </div>
+          <div class="skill-label"><span>Python</span><span>85%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 85%;"></div>
+          </div>
+          <div class="skill-label"><span>C</span><span>80%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 80%;"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <h4><i class="fas fa-terminal"></i> Scripting Languages</h4>
+          <div class="skill-label"><span>JavaScript</span><span>80%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 85%;"></div>
+          </div>
+          <div class="skill-label"><span>HTML</span><span>90%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 90%;"></div>
+          </div>
+          <div class="skill-label"><span>CSS</span><span>85%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <h4><i class="fas fa-database"></i> Databases</h4>
+          <div class="skill-label"><span>SQL</span><span>90%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 80%;"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <h4><i class="fas fa-chart-bar"></i> Visualization & Analysis</h4>
+          <div class="skill-label"><span>AI Tools</span><span>85%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 75%;"></div>
+          </div>
+          <div class="skill-label"><span>Data Analysis</span><span>80%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 70%;"></div>
+          </div>
+          <div class="skill-label"><span>Power Bi</span><span>84%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 80%;"></div>
+          </div>
+          <div class="skill-label"><span>Ms Excel</span><span>90%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 80%;"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <h4><i class="fas fa-tools"></i> Tools & Software</h4>
+          <div class="skill-label"><span>GitHub</span><span>90%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 90%;"></div>
+          </div>
+          <div class="skill-label"><span>VS Code</span><span>85%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 85%;"></div>
+          </div>
+          <div class="skill-label"><span>Google Docs & sheet</span><span>80%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 80%;"></div>
+          </div>
+          <div class="skill-label"><span>Star UML</span><span>85%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 82%;"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <h4><i class="fas fa-ellipsis-h"></i> Others</h4>
+          <div class="skill-label"><span>Communication</span><span>90%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 90%;"></div>
+          </div>
+          <div class="skill-label"><span>Technical Writing</span><span>85%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 85%;"></div>
+          </div>
+          <div class="skill-label"><span>Problem Solving</span><span>88%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width: 88%;"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Featured Project</div>
+      <div class="project-card">
+        <h3>Aorus Gigabyte Website – Reimagine Hackathon</h3>
+        <p>Developed a modern, responsive website for Gigabyte Aorus as part of the Reimagine Hackathon by
+          Sheryians Coding School. Hosted live and showcased on GitHub.</p>
+        <video autoplay muted loop controls>
+          <source src="Team EXIA.mp4" type="video/mp4">
+          <!-- Your browser does not support the video tag. -->
+        </video>
+        <a href="https://vaidika1410.github.io/Team-EXIA-ReimagineRound1/#" target="_blank" id="project-live">View
+          Live Project</a>
+        <a id="project-github-repo" href="https://github.com/vaidika1410/Team-EXIA-ReimagineRound1" target="_blank">View
+          GitHub Repo</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Passion</div>
+      <div>Pc building, Innovation, Gym & Biking</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Languages</div>
+      <div class="languages">
+        <span>English & Hindi</span>
+      </div>
+    </div>
+
+    <div class="section contact">
+      <div class="section-title">Contact</div>
+      <div>Email: <a href="mailto:gjagthap90@gmail.com">gjagthap90@gmail.com</a></div>
+      <div>Phone: +91 8982269274</div>
+      <div>Location: Indore, India</div>
+    </div>
+
+    <div class="buttons">
+      <a class="LinkedIn" href="https://linkedin.com/in/gautam-jagthap-469b5729b" LinkedIn id="linkedin"> LinkedIn</a>
+      <a class="Resume" href="Gautam Jagthap_Resume.pdf" id="Resume"> Resume</a>
+    </div>
+  </div>
+
+  <footer>@2025 Gautam Jagthap</footer>
+</body>
+
+</html>
